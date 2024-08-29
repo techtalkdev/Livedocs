@@ -16,7 +16,8 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: 'LiveDocs',
   description: 'Your go-to collaborative editor',
-} 
+}
+
 
 export default function RootLayout({ children }:{ children: React.ReactNode }) {
   return (
@@ -27,16 +28,16 @@ export default function RootLayout({ children }:{ children: React.ReactNode }) {
       }}  
     >
       <html lang="en" suppressHydrationWarning>
-            <body
-        className={cn(
-          "min-h-screen font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        <Provider>
-        {children}
-        </Provider>
-      </body>
+      <body
+          className={cn(
+            "min-h-screen font-sans antialiased",
+            fontSans.variable
+          )}
+        >
+          <Provider>
+            {children}
+          </Provider>
+        </body> 
     </html>
     </ClerkProvider>
   )

@@ -4,16 +4,16 @@ import { getDocuments } from "@/lib/actions/room.actions";
 import { dateConverter } from "@/lib/utils";
 import { SignedIn, UserButton } from "@clerk/nextjs"
 import { currentUser } from "@clerk/nextjs/server";
+
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
 const Home = async () => {
-
   const clerkUser = await currentUser();
   if(!clerkUser) redirect('/sign-in');
 
-  const roomDocuments = await getDocuments(clerkUser.emailAddresses[0].emailAddress); 
+  const roomDocuments = await getDocuments(clerkUser.emailAddresses[0].emailAddress);
 
   return (
     <main className="home-container">
@@ -24,6 +24,7 @@ const Home = async () => {
           </SignedIn>
         </div>
       </Header>
+      
       {roomDocuments.data.length > 0 ? (
         <div className="document-list-container">
           <div className="document-list-title">
