@@ -8,6 +8,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 import Provider from './Provider';
 
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -16,9 +17,12 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: 'LiveDocs',
   description: 'Your go-to collaborative editor',
-}
+  icons: {
+    icon: '/assets/icons/logo-icon.svg',
+  },
+}  
 
-
+ 
 export default function RootLayout({ children }:{ children: React.ReactNode }) {
   return (
     <ClerkProvider 
